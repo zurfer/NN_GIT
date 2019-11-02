@@ -13,35 +13,33 @@ int main(int argc, const char * argv[]) {
     
 	//srand(time(nullptr));
 	
+    std::cout << "m1:\n";
 	Matrix<double> m1(3, 4, {
 			1.0, 2.0, 3.0, 100.0,
 			4.0, 5.0, 6.0, 100.0,
-			7.0, 8.0, 9.0, 100.0,
-			10.0, 11.0, 12.0, 100.0});
-	
-	Matrix<float> m2(4, 4);
+			7.0, 8.0, 9.0, 100.0});
+    m1.print();
+    
+    std::cout << "m2 {m1} \n";
+    Matrix<double> m2 {m1};
+    m2.print();
+    
+    std::cout << "m2.randomize()\n";
+    m2.randomize();
+    m2.print();
+    
+    std::cout << "m2 = m1\n";
+    m2 = m1;
+    m2.print();
+    
+    Matrix<float> m3;
+    std::cout << "m3; m3.conv_from m1";
+    m3 = m1;
+    m1.print();
+    
 
-	Matrix<float> m3;
-
-    std::cout << "m1:\n";
-	m1.print();
-
-	std::cout << "m2:\n";
-	m2.print();
-	
-	std::cout << "m3:\n";
-	m3.print();
-
-	m3.convert_from(m1);
-	std::cout << "convert m1 to m3 and print m3:\n";
-	m3.print();
-
-	m3.randomize();
-	std::cout << "randomize and print m3:\n";
-	m3.print();
-
-	std::cout << "Press ENTER to exit...\n";
-	std::cin.get();
+	//std::cout << "Press ENTER to exit...\n";
+	//std::cin.get();
 
     return 0;
 }
